@@ -1,0 +1,25 @@
+# Virtual environment
+venv/
+
+# Python
+*.pyc
+__pycache__/
+
+# Environment variables
+.env
+
+# IDE/Editor-specific
+.vscode/
+.idea/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Node modules (if applicable)
+node_modules/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
