@@ -9,6 +9,4 @@ class Perfume(models.Model):
     image = models.ImageField(upload_to='images/')
 
     def __str__(self):
-        return f"{self.name} ({dict(self.SIZE_CHOICES).get(self.size, 'small')})"
-    
-    
+        return f"{self.name} ({dict(self.SIZE_CHOICES).get(self.size, '25 ml')})"
