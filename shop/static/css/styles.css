@@ -1,0 +1,15 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+/* The CSS for the body and main tag was taken from the source code provided by Code Institute in order 
+   to keep the footer at the bottom of the page despite litte content the page may have */
+
+/* ------------- General ------------- */
