@@ -7,4 +7,18 @@ Home - Cass Galaar
 {% block content %}
 <h1>Cass Galaar</h1>
 <p>Browse our exclusive range of perfumes.</p>
+<ul>
+    {% for perfume in perfumes %}
+    <li>
+        <img src="{{ perfume.image.url }}" alt="{{ perfume.name }}">
+        <h3>{{ perfume.name }}</h3>
+        <p>Size: {{ perfume.size }}</p>
+        <p>Price: £{{ perfume.price }}</p>
+        <p>{{ perfume.description }}</p>
+    </li>
+    {% empty %}
+    <p>No perfumes available.</p>
+    {% endfor %}
+</ul>
+
 {% endblock %}
