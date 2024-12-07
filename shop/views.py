@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import UserRegisterForm
+from .models import Perfume
 
 def index(request):
-    return render(request, 'index.html')
+    perfumes = Perfume.objects.all()
+    return render(request, 'index.html', {'perfumes': perfumes})
 
 def register(request):
     if request.method == 'POST':
