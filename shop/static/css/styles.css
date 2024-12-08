@@ -85,6 +85,11 @@ margin-top: -10px;
 
 /* ------------- Perfume Items ------------- */
 
+.perfume-card {
+color: rgb(0, 0, 0) !important;
+text-decoration: none !important;
+}
+
 .card {
 border: none;
 box-shadow: 0px 0px 8px 5px rgb(229, 185, 53);
@@ -97,5 +102,28 @@ transform: scale(0.96);
 }
 
 h2.card-title {
-    font-size: 1.5rem;
+font-size: 1.5rem;
+}
+
+/* ------------- Perfume Details Page ------------- */
+
+form select {
+max-width: 100px;
+}
+
+img {
+border-radius: 5px;
+}
+
+.btn-gold {
+background-color: #caa126;
+color: rgb(0, 0, 0);
+font-weight: 500;
+transition: all 0.2s ease-in-out;
+}
+
+.btn-gold:hover {
+transform: scale(1.05);
+box-shadow: 0px 0px 2px 0.5px rgb(229, 185, 53);
+color: rgb(245, 245, 245);
 }

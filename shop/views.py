@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .forms import UserRegisterForm
 from .models import Perfume
@@ -19,3 +19,6 @@ def register(request):
         form = UserRegisterForm()
     return render(request, 'register.html', {'form': form})
 
+def perfume_detail(request, pk):
+    perfume = get_object_or_404(Perfume, pk=pk)
+    return render(request, 'perfume_detail.html', {'perfume': perfume})

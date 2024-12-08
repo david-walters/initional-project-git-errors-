@@ -15,15 +15,17 @@ Cass Galaar - Home
         <div class="row">
             {% for perfume in perfumes %}
             <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-                <div class="card card-hover h-100">
-                    <img src="{{ perfume.image.url }}" class="card-img-top" alt="{{ perfume.name }}">
-                    <div class="card-body">
-                        <h2 class="card-title">{{ perfume.name }}</h2>
-                        <p class="card-text">
-                            {{ perfume.description }}
-                        </p>
+                <a class="perfume-card" href="{% url 'perfume_detail' perfume.id %}">
+                    <div class="card card-hover h-100">
+                        <img src="{{ perfume.image.url }}" class="card-img-top" alt="{{ perfume.name }}">
+                        <div class="card-body">
+                            <h2 class="card-title">{{ perfume.name }}</h2>
+                            <p class="card-text">
+                                {{ perfume.description }}
+                            </p>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
             {% empty %}
             <div class="col-12">
