@@ -8,16 +8,34 @@ Login Page
 
 {% block content %}
 {% if messages %}
-<ul class="messages">
+<ul class="messages gold-1">
     {% for message in messages %}
-    <li class="message">{{ message }}</li>
+    <li class="message gold-1">{{ message }}</li>
     {% endfor %}
 </ul>
 {% endif %}
-<h2>Login</h2>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
-</form>
+<section class="form-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-head text-center py-3">
+                                    <h1 class="cinzel-regular">Login</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <form method="POST" class="form p-2">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
