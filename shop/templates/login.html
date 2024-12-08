@@ -32,14 +32,18 @@ Login Page
                         <form method="POST" class="form p-2">
                             {% csrf_token %}
                             {{ form.as_p }}
-                            <div class="d-flex justify-content-center">
+                            <<<<<<< HEAD <div class="d-flex justify-content-center">
                                 <button class="btn btn-gold mt-3" type="submit">Login</button>
-                            </div>
-                        </form>
                     </div>
+                    =======
+                    <button type="submit">Login</button>
+                    >>>>>>> 421b40b (Create cards for the content of the Login, Logout, and Register pages and style
+                    according to the site's theme)
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </section>
 {% endblock %}
