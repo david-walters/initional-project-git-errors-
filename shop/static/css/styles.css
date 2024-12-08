@@ -4,6 +4,7 @@ display: flex;
 min-height: 100vh;
 flex-direction: column;
 background-color: black;
+padding-top: 80px;
 }
 
 main {
@@ -47,7 +48,7 @@ font-style: normal;
 
 /* ------------- Header ------------- */
 
-header {
+nav {
 background-color: rgb(45, 45, 45);
 }
 
@@ -58,7 +59,7 @@ transition: all 0.4s;
 }
 
 nav a:hover {
-color: beige !important;
+color: rgb(245, 245, 220) !important;
 text-decoration: none;
 }
 
@@ -74,7 +75,11 @@ font-size: 1.5rem;
 }
 
 button.gold-2:hover {
-color: beige !important;
+color: rgb(245, 245, 220) !important;
+}
+
+.bi-cart {
+font-size: 2rem;
 }
 
 /* ------------- Main Page ------------- */
@@ -92,7 +97,7 @@ text-decoration: none !important;
 
 .card {
 border: none;
-box-shadow: 0px 0px 8px 5px rgb(229, 185, 53);
+box-shadow: 0px 0px 7px 3.5px rgb(229, 185, 53);
 transition: all 0.4s;
 }
 
