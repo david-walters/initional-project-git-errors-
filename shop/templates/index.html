@@ -1,24 +1,38 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Home - Cass Galaar
+Cass Galaar - Home
 {% endblock %}
 
 {% block content %}
-<h1>Cass Galaar</h1>
-<p>Browse our exclusive range of perfumes.</p>
-<ul>
-    {% for perfume in perfumes %}
-    <li>
-        <img src="{{ perfume.image.url }}" alt="{{ perfume.name }}">
-        <h3>{{ perfume.name }}</h3>
-        <p>Size: {{ perfume.size }}</p>
-        <p>Price: £{{ perfume.price }}</p>
-        <p>{{ perfume.description }}</p>
-    </li>
-    {% empty %}
-    <p>No perfumes available.</p>
-    {% endfor %}
-</ul>
+<section class="text-center mb-5">
+    <h1 class="gold-1">Cass Galaar</h1>
+    <p class="gold-2">Browse our exclusive range of perfumes.</p>
+</section>
+
+<section>
+    <div class="container text-center">
+        <div class="row">
+            {% for perfume in perfumes %}
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="card h-100">
+                    <img src="{{ perfume.image.url }}" class="card-img-top" alt="{{ perfume.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ perfume.name }}</h5>
+                        <p class="card-text">
+                            {{ perfume.description }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12">
+                <p>No perfumes available.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
 
 {% endblock %}
