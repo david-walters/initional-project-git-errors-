@@ -11,12 +11,12 @@ flex: 1 0 auto;
 }
 
 /* The CSS for the body and main tag was taken from the source code provided by Code Institute in order 
-   to keep the footer at the bottom of the page despite litte content the page may have */
+to keep the footer at the bottom of the page despite litte content the page may have */
 
 /* ------------- General ------------- */
 
 h1 {
-    font-size: 4rem;
+font-size: 4rem;
 }
 
 .gold-1 {
@@ -52,35 +52,35 @@ background-color: rgb(45, 45, 45);
 }
 
 nav a {
-    font-size: 1.5rem;
-    color: #B8860B !important;
-    transition: all 0.4s;
+font-size: 1.5rem;
+color: #B8860B !important;
+transition: all 0.4s;
 }
 
 nav a:hover {
-    color: beige !important;
-    text-decoration: none;
+color: beige !important;
+text-decoration: none;
 }
 
 .navbar-toggler-icon {
-    background-color: #B8860B;
-    line-height: 8px;
-    min-width: 50px;
-    border-radius: 3px;
+background-color: #B8860B;
+line-height: 8px;
+min-width: 50px;
+border-radius: 3px;
 }
 
 button.gold-2 {
-    font-size: 1.5rem;
+font-size: 1.5rem;
 }
 
 button.gold-2:hover {
-    color: beige !important;
+color: beige !important;
 }
 
 /* ------------- Main Page ------------- */
 
 .slogan {
-    margin-top: -10px;
+margin-top: -10px;
 }
 
 /* ------------- Perfume Items ------------- */
@@ -88,4 +88,14 @@ button.gold-2:hover {
 .card {
 border: none;
 box-shadow: 0px 0px 8px 5px rgb(229, 185, 53);
+transition: all 0.4s;
+}
+
+.card-hover:hover {
+cursor: pointer;
+transform: scale(0.96);
+}
+
+h2.card-title {
+    font-size: 1.5rem;
 }
