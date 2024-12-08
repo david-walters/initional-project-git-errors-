@@ -15,12 +15,72 @@ flex: 1 0 auto;
 
 /* ------------- General ------------- */
 
+h1 {
+    font-size: 4rem;
+}
+
 .gold-1 {
-color: #caa126;
+color: #caa126 !important;
 }
 
 .gold-2 {
-color: #B8860B;
+color: #B8860B !important;
+}
+
+.cinzel-regular {
+font-family: "Cinzel Decorative", serif;
+font-weight: 400;
+font-style: normal;
+}
+
+.cinzel-bold {
+font-family: "Cinzel Decorative", serif;
+font-weight: 700;
+font-style: normal;
+}
+
+.cinzel-thick {
+font-family: "Cinzel Decorative", serif;
+font-weight: 900;
+font-style: normal;
+}
+
+/* ------------- Header ------------- */
+
+header {
+background-color: rgb(45, 45, 45);
+}
+
+nav a {
+    font-size: 1.5rem;
+    color: #B8860B !important;
+    transition: all 0.4s;
+}
+
+nav a:hover {
+    color: beige !important;
+    text-decoration: none;
+}
+
+.navbar-toggler-icon {
+    background-color: #B8860B;
+    line-height: 8px;
+    min-width: 50px;
+    border-radius: 3px;
+}
+
+button.gold-2 {
+    font-size: 1.5rem;
+}
+
+button.gold-2:hover {
+    color: beige !important;
+}
+
+/* ------------- Main Page ------------- */
+
+.slogan {
+    margin-top: -10px;
 }
 
 /* ------------- Perfume Items ------------- */
