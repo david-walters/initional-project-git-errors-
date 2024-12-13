@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container cart-page text-center">
+<<<<<<< HEAD <div class="container cart-page text-center">
     <h1 class="gold-1 cinzel-regular mb-5">Your Shopping Cart</h1>
 
     {% if cart_items %}
@@ -17,30 +17,47 @@
                 {% csrf_token %}
                 <button type="submit" class="btn btn-gold">Remove</button>
             </form>
-        </li>
-        {% endfor %}
-    </ul>
-    {% else %}
-    <p class="gold-2 font-increase">Your cart is empty.</p>
-    {% endif %}
-</div>
-<hr>
+            =======
+            <div class="container">
+                <h1 class="gold-1 cinzel-regular">Your Shopping Cart</h1>
 
-<div class="cart-page mb-5" id="make-purchase">
-    <p class="gold-1 font-increase pb-2">Total Cart Price: <strong>£{{ total_cart_price }}</strong></p>
-    <a href="{% url 'finalise_purchase' %}" class="btn btn-gold">Finalise Purchase</a>
-</div>
+                {% if cart_items %}
+                <ul>
+                    {% for item in cart_items %}
+                    <li>
+                        <img src="{{ item.perfume.image.url }}" alt="{{ item.perfume.name }}">
+                        <p>Name: {{ item.perfume.name }}</p>
+                        <p>Size: {{ item.size }}</p>
+                        <p>Quantity: {{ item.quantity }}</p>
+                        <p>Price: £{{ item.perfume.price }}</p>
+                        >>>>>>> 13b138b (Create a cart app. Create a model to save the perfumes that the user wants to
+                        add to the cart if they are registered. For session users create a seperate view for them to add
+                        to the cart. Configure the cart.html to display the items of the registered user that they
+                        added.)
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p class="gold-2 font-increase">Your cart is empty.</p>
+                {% endif %}
+            </div>
+            <hr>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const cartItems = document.querySelectorAll('.cart-item');
-        const finalisePurchaseDiv = document.getElementById('make-purchase');
-        if (cartItems.length === 0) {
-            finalisePurchaseDiv.classList.add('hide')
-        } else {
-            finalisePurchaseDiv.classList.remove('hide');
-        }
-    });
-</script>
+            <div class="cart-page mb-5" id="make-purchase">
+                <p class="gold-1 font-increase pb-2">Total Cart Price: <strong>£{{ total_cart_price }}</strong></p>
+                <a href="{% url 'finalise_purchase' %}" class="btn btn-gold">Finalise Purchase</a>
+            </div>
 
-{% endblock %}
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const cartItems = document.querySelectorAll('.cart-item');
+                    const finalisePurchaseDiv = document.getElementById('make-purchase');
+                    if (cartItems.length === 0) {
+                        finalisePurchaseDiv.classList.add('hide')
+                    } else {
+                        finalisePurchaseDiv.classList.remove('hide');
+                    }
+                });
+            </script>
+
+            {% endblock %}
