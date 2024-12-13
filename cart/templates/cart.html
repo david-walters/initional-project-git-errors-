@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1 class="gold-1 cinzel-regular">Your Shopping Cart</h1>
+
+    {% if cart_items %}
+    <ul>
+        {% for item in cart_items %}
+        <li>
+            <img src="{{ item.perfume.image.url }}" alt="{{ item.perfume.name }}">
+            <p>Name: {{ item.perfume.name }}</p>
+            <p>Size: {{ item.size }}</p>
+            <p>Quantity: {{ item.quantity }}</p>
+            <p>Price: £{{ item.perfume.price }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p class="gold-2">Your cart is empty.</p>
+    {% endif %}
+
+</div>
+{% endblock %}
