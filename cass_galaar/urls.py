@@ -23,7 +23,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('shop.urls')),
     path('cart/templates', include('cart.urls')),
+<<<<<<< HEAD
     path('finalise_purchase/', include('finalise_purchase.urls')),
+=======
+>>>>>>> bc139a9 (Create a cart icon in the base file and a view and url for the shopping cart. Link the cart icon to the cart.html page)
 ]
 
 if settings.DEBUG:
