@@ -13,17 +13,33 @@
         <div class="col-md-6">
             <h2 class="gold-1 cinzel-bold">{{ perfume.name }}</h2>
             <p class="gold-2">{{ perfume.description }}</p>
-            <form method="POST">
+            <form method="POST" action="{% url 'add_to_cart' perfume.id %}">
                 {% csrf_token %}
-                <label class="gold-1" for="size">Select Size:</label>
-                <select id="size" name="size" class="form-control" onchange="updatePrice(this)">
-                    {% for size, display in perfume.SIZE_CHOICES %}
-                    <option value="{{ size }}">{{ display }}</option>
-                    {% endfor %}
-                </select>
+                <!-- Size Selector -->
+                <div class="d-flex">
+                    <div>
+                        <label class="gold-1" for="size">Select Size:</label>
+                        <select id="size" name="size" class="form-control" onchange="updatePrice(this)">
+                            {% for size, display in perfume.SIZE_CHOICES %}
+                            <option value="{{ size }}">{{ display }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div>
+                        <!-- Quantity Input -->
+                        <label class="gold-1" for="quantity">Quantity:</label>
+                        <input type="number" id="quantity" name="quantity" class="form-control" value="1" min="1"
+                            max="10">
+                    </div>
+                </div>
                 <p class="mt-3 gold-1">Price: <span id="price">£{{ perfume.price }}</span></p>
-                <button class="btn btn-gold mt-2">Add to Cart</button>
+
+
+
+
+                <button type="submit" class="btn btn-gold mt-2">Add to Cart</button>
             </form>
+
         </div>
     </div>
 </div>
