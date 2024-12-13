@@ -32,14 +32,15 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <div class="navbar-nav ml-auto">
+                    {% if user.is_authenticated %}
                     <a class="nav-item nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'index' %}">
                         Home {% if request.path == '/' %}<span class="sr-only">(current)</span>{% endif %}
                     </a>
-                    {% if user.is_authenticated %}
                     <form method="POST" action="{% url 'logout' %}" class="form-inline">
                         {% csrf_token %}
                         <button type="submit" class="btn gold-2">Logout</button>
                     </form>
+                    <a class="form-inline mr-3" href="{% url 'cart' %}"><i class="bi bi-cart"></i></a>
                     {% else %}
                     <a class="nav-item nav-link {% if request.path == '/login/' %}active{% endif %}"
                         href="{% url 'login' %}">
@@ -50,7 +51,6 @@
                         Register
                     </a>
                     {% endif %}
-                    <a class="form-inline mr-3" href="{% url 'cart' %}"><i class="bi bi-cart"></i></a>
                 </div>
             </div>
         </nav>
