@@ -1,16 +1,16 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.db.models import F
 from cart.models import CartItem
 from shop.models import Perfume
 
 def cart(request):
-    print("Cart view called")
     if request.user.is_authenticated:
         # Fetch CartItems from the database for authenticated users
-        cart_items = CartItem.objects.filter(user=request.user)
-        print("Authenticated User:", request.user)
-        print("Cart Items:", list(cart_items))
+        cart_items = CartItem.objects.filter(user=request.user).annotate(
+            total_price=F('quantity') * F('perfume__price')
+        )
     else:
-        # For unauthenticated users, this pulls the cart from the session
+        # For unauthenticated users, pull the cart from the session
         session_cart = request.session.get('cart', {})
         cart_items = [
             {
@@ -19,6 +19,7 @@ def cart(request):
                 'price': item_data['price'],
                 'quantity': item_data['quantity'],
                 'image': item_data['image'],
+                'total_price': item_data['price'] * item_data['quantity'],
             }
             for item_data in session_cart.values()
         ]
@@ -55,7 +56,7 @@ def add_to_cart(request, perfume_id):
                 'size': size,
                 'price': float(perfume.price),
                 'quantity': quantity,
-                'image': perfume.image.url
+                'image': perfume.image.url,
             }
         request.session['cart'] = cart
 
