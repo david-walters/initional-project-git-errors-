@@ -30,3 +30,12 @@ def add_to_cart(request, perfume_id):
     cart_item.save()
 
     return redirect('cart')
+
+def remove_from_cart(request, cart_item_id):
+    # Ensure the user is authenticated
+    if request.user.is_authenticated:
+        # Remove the item from the database
+        cart_item = get_object_or_404(CartItem, id=cart_item_id, user=request.user)
+        cart_item.delete()
+
+    return redirect('cart')

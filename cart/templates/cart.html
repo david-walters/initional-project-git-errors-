@@ -13,6 +13,10 @@
             <p class="gold-2">Size: {{ item.size }}</p>
             <p class="gold-2">Quantity: {{ item.quantity }}</p>
             <p class="gold-2">Price: £{{ item.total_price }}</p>
+            <form action="{% url 'remove_from_cart' item.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-gold">Remove</button>
+            </form>
         </li>
         {% endfor %}
     </ul>
