@@ -16,12 +16,21 @@ Register
                                 <div class="form-head text-center py-3">
                                     <h1 class="cinzel-regular">Register</h1>
                                 </div>
+                                <p class="text-center">
+                                    Create an account with us to explore our exclusive range of perfmumes.
+                                    Signing up is quick, free, and enables you to purchase the scent of Cass Galaar!
+                                </p>
+                                <p class="text-center">If you already have an account: <a href="{% url 'login' %}">Login
+                                        here</a></p>
                             </div>
                         </div>
-                        <form method="POST" class="form p-2">
+                        <hr>
+                        <form method="POST" class="mt-3 form p-2">
                             {% csrf_token %}
                             {{ form.as_p }}
-                            <button type="submit">Register</button>
+                            <div class="d-flex justify-content-center">
+                                <button class="btn btn-gold mt-3" type="submit">Register</button>
+                            </div>
                         </form>
                     </div>
                 </div>
