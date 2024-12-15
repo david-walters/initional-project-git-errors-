@@ -46,6 +46,10 @@ font-weight: 900;
 font-style: normal;
 }
 
+.font-increase {
+    font-size: 1.5rem;
+}
+
 /* ------------- Header ------------- */
 
 nav {
