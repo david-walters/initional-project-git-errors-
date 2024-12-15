@@ -21,7 +21,11 @@
                         <label class="gold-1" for="size">Select Size:</label>
                         <select id="size" name="size" class="form-control" onchange="updatePrice(this)">
                             {% for size, display in perfume.SIZE_CHOICES %}
-                            <option value="{{ size }}">{{ display }}</option>
+                            {% if forloop.first %}
+                            <option value="{{ size }}" selected>{{ display }}</option>
+                            {% else %}
+                            <option value="{{ size }}" disabled>{{ display }} - Out of Stock</option>
+                            {% endif %}
                             {% endfor %}
                         </select>
                     </div>
