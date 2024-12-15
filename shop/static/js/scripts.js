@@ -7,3 +7,13 @@ function updatePrice(selectElement) {
     };
     document.getElementById("price").innerText = "£" + prices[selectElement.value].toFixed(2);
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    const cartItems = document.querySelectorAll('.cart-item');
+    const finalisePurchaseDiv = document.getElementById('make-purchase');
+    if (cartItems.length === 0) {
+        finalisePurchaseDiv.classList.add('hide')
+    } else {
+        finalisePurchaseDiv.classList.remove('hide');
+    }
+});
