@@ -13,7 +13,7 @@ class Perfume(models.Model):
 
     name = models.CharField(max_length=100)
     size = models.CharField(max_length=10, choices=SIZE_CHOICES, default="25 ml")
-    price = models.DecimalField(max_digits=10, decimal_places=2, editable=False)
+    price = models.DecimalField(max_digits=10, decimal_places=2, editable=False, default=24.00)
     description = models.TextField()
     image = models.ImageField(upload_to='images/')
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
