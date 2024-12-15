@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.db.models import F
+from django.db.models import F, Sum
 from django.contrib.auth.decorators import login_required
 from cart.models import CartItem
 from shop.models import Perfume
@@ -7,10 +7,13 @@ from shop.models import Perfume
 @login_required(login_url='register')
 def cart(request):
     cart_items = CartItem.objects.filter(user=request.user).annotate(
-        total_price=F('quantity') * F('perfume__price')
+        calculated_total_price=F('quantity') * F('perfume__price')
     )
+    
+    total_cart_price = cart_items.aggregate(total=Sum(F('quantity') * F('perfume__price')))['total'] or 0.00
 
-    return render(request, 'cart.html', {'cart_items': cart_items})
+    return render(request, 'cart.html', {'cart_items': cart_items, 'total_cart_price': total_cart_price})
+
 
 @login_required
 def add_to_cart(request, perfume_id):
