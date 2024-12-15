@@ -42,7 +42,6 @@
                         <button type="submit" class="btn gold-2">Logout</button>
                     </form>
                     <a class="form-inline mr-3" href="{% url 'cart' %}"><i class="bi bi-cart"></i></a>
-<<<<<<< HEAD
                     =======
                     <nav class="navbar navbar-expand-lg navbar-light bg-light">
                         <a class="navbar-brand" href="{% url 'index' %}">Cass Galaar</a>
@@ -76,21 +75,6 @@
                             </div>
                         </div>
                     </nav>
-=======
-                    {% else %}
-                    <a class="nav-item nav-link {% if request.path == '/login/' %}active{% endif %}"
-                        href="{% url 'login' %}">
-                        Login
-                    </a>
-                    <a class="nav-item nav-link {% if request.path == '/register/' %}active{% endif %}"
-                        href="{% url 'register' %}">
-                        Register
-                    </a>
-                    {% endif %}
-                </div>
-            </div>
-        </nav>
->>>>>>> ef9b18b (Make the entire website for registered users only. Using the login_required import, prevent the user from going to the index page, cart page, and perfume detail page. Always direct them to the register page. Change the base file so the nav only shows Login and register for unauthenticated users, and to show home logout and chopping cart for authenticated users)
     </header>
 
 
@@ -99,11 +83,16 @@
     </main>
 
     <footer class="text-center py-4">
-        <<<<<<< HEAD <p class="gold-2">&copy; 2024 Cass Galaar</p>
+        <<<<<<< HEAD <<<<<<< HEAD <p class="gold-2">&copy; 2024 Cass Galaar</p>
             =======
             <p class="gold-1">&copy; 2024 Cass Galaar</p>
             >>>>>>> aadc3cc (Switch to an older version of bootstrap for familiarity purposes and use a collapsible nav
             bar,)
+            =======
+            <p class="gold-2">&copy; 2024 Cass Galaar</p>
+            >>>>>>> eb13174 (Fix the bug of the price not updating according to the size with a temporary fix due to
+            deadline approaching — Create an if statement that will enable the first price to be selected and make the
+            other options disabled and listed as 'out of stock')
     </footer>
 
     <!-- jQuery Slim -->
