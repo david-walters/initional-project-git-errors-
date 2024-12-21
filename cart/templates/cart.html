@@ -28,6 +28,19 @@
 
 <div class="cart-page mb-5" id="make-purchase">
     <p class="gold-1 font-increase pb-2">Total Cart Price: <strong>£{{ total_cart_price }}</strong></p>
-    <button class="btn btn-gold">Finalise Purchase</button>
+    <a href="{% url 'finalise_purchase' %}" class="btn btn-gold">Finalise Purchase</a>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const cartItems = document.querySelectorAll('.cart-item');
+        const finalisePurchaseDiv = document.getElementById('make-purchase');
+        if (cartItems.length === 0) {
+            finalisePurchaseDiv.classList.add('hide')
+        } else {
+            finalisePurchaseDiv.classList.remove('hide');
+        }
+    });
+</script>
+
 {% endblock %}
