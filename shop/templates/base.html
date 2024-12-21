@@ -33,49 +33,30 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <div class="navbar-nav ml-auto">
-                    {% if user.is_authenticated %}
                     <a class="nav-item nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'index' %}">
                         Home {% if request.path == '/' %}<span class="sr-only">(current)</span>{% endif %}
                     </a>
+                    {% if user.is_authenticated %}
                     <form method="POST" action="{% url 'logout' %}" class="form-inline">
                         {% csrf_token %}
                         <button type="submit" class="btn gold-2">Logout</button>
                     </form>
                     <a class="form-inline mr-3" href="{% url 'cart' %}"><i class="bi bi-cart"></i></a>
-                    =======
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                        <a class="navbar-brand" href="{% url 'index' %}">Cass Galaar</a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNav">
-                            <div class="navbar-nav ml-auto">
-                                <a class="nav-item nav-link {% if request.path == '/' %}active{% endif %}"
-                                    href="{% url 'index' %}">
-                                    Home {% if request.path == '/' %}<span class="sr-only">(current)</span>{% endif %}
-                                </a>
-                                {% if user.is_authenticated %}
-                                <form method="POST" action="{% url 'logout' %}" class="form-inline">
-                                    {% csrf_token %}
-                                    <button type="submit" class="btn">Logout</button>
-                                </form>
-                                >>>>>>> aadc3cc (Switch to an older version of bootstrap for familiarity purposes and
-                                use a collapsible nav bar,)
-                                {% else %}
-                                <a class="nav-item nav-link {% if request.path == '/login/' %}active{% endif %}"
-                                    href="{% url 'login' %}">
-                                    Login
-                                </a>
-                                <a class="nav-item nav-link {% if request.path == '/register/' %}active{% endif %}"
-                                    href="{% url 'register' %}">
-                                    Register
-                                </a>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </nav>
+                    {% else %}
+                    <a class="nav-item nav-link {% if request.path == '/login/' %}active{% endif %}"
+                        href="{% url 'login' %}">
+                        Login
+                    </a>
+                    <a class="nav-item nav-link {% if request.path == '/register/' %}active{% endif %}"
+                        href="{% url 'register' %}">
+                        Register
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
     </header>
+
 
 
     <main class="container mt-4">
@@ -83,16 +64,7 @@
     </main>
 
     <footer class="text-center py-4">
-        <<<<<<< HEAD <<<<<<< HEAD <p class="gold-2">&copy; 2024 Cass Galaar</p>
-            =======
-            <p class="gold-1">&copy; 2024 Cass Galaar</p>
-            >>>>>>> aadc3cc (Switch to an older version of bootstrap for familiarity purposes and use a collapsible nav
-            bar,)
-            =======
-            <p class="gold-2">&copy; 2024 Cass Galaar</p>
-            >>>>>>> eb13174 (Fix the bug of the price not updating according to the size with a temporary fix due to
-            deadline approaching — Create an if statement that will enable the first price to be selected and make the
-            other options disabled and listed as 'out of stock')
+        <p class="gold-2">&copy; 2024 Cass Galaar</p>
     </footer>
 
     <!-- jQuery Slim -->
@@ -111,12 +83,6 @@
         crossorigin="anonymous"></script>
 
     <script src="{% static 'js/scripts.js' %}"></script>
-
-    <script id="client-secret" type="application/json">
-        "{{ client_secret }}"
-    </script>
-
-    {{ client_secret|json_script:"id_client_secret" }}
 </body>
 
 </html>
